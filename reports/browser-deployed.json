@@ -1,0 +1,21 @@
+{
+  "base": "https://seoul-subway-accessibility-b8o.pages.dev",
+  "desktop": [
+    1440,
+    1100
+  ],
+  "mobile": [
+    390,
+    844
+  ],
+  "maps": 426,
+  "options": 426,
+  "selection": "지도 클릭·키보드·드롭다운 통과",
+  "scatter": "통과",
+  "search": "통과",
+  "assets": "통과",
+  "mobileOverflow": false,
+  "browserErrors": [],
+  "failedResponses": [],
+  "representative": "reports/representative.png"
+}

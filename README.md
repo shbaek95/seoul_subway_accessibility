@@ -3,7 +3,7 @@
 백승현 · 스마트도시데이터분석 **과제 3**
 
 - GitHub: https://github.com/shbaek95/seoul_subway_accessibility
-- Cloudflare Pages: 배포 전: 실제 주소 검증 후 기록
+- Cloudflare Pages: https://seoul-subway-accessibility-b8o.pages.dev
 - 수업 원문: [03_accessibility.ipynb 마지막 과제3 안내](https://github.com/jslee-gses/code/blob/main/lecture05_urban_planning_index/03_accessibility.ipynb)
 - 마감일·필수 파일명·필수 파일 형식: **과제 안내에서 확인되지 않음**
 

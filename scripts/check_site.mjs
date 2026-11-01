@@ -3,6 +3,7 @@ import {createRequire} from 'node:module';
 import fs from 'node:fs/promises';
 import assert from 'node:assert/strict';
 import path from 'node:path';
+import {createHash} from 'node:crypto';
 const require=createRequire(import.meta.url);
 let chromium;
 try{({chromium}=require('playwright'));}catch{({chromium}=require('../../seoul_rent_api/node_modules/playwright'));}
@@ -32,6 +33,9 @@ try{
  await page.locator('#search').fill('');
  const payload=await page.request.get(base+'/results.geojson');assert.equal(payload.status(),200);const geo=await payload.json();assert.equal(geo.features.length,426);
  for(const asset of ['app.js','style.css','summary.json','sources.json','validation.json','results.csv','report.md'])assert.equal((await page.request.get(base+'/'+asset)).status(),200,asset);
+ const validation=await (await page.request.get(base+'/validation.json')).json();
+ const csvBytes=await (await page.request.get(base+'/results.csv')).body();
+ assert.equal(createHash('sha256').update(csvBytes).digest('hex'),validation.result_csv_sha256,'공개 CSV 바이트 해시');
  await page.locator('#dong-select').selectOption(first);await page.evaluate(()=>scrollTo(0,0));
  await page.screenshot({path:'.local/'+tag+'-desktop.png',fullPage:true});
  // 대표 이미지는 실제 사이트의 제목·핵심 수치·지도·선택 결과가 읽히는 가로 화면입니다.

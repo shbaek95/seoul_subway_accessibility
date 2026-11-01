@@ -1,0 +1,14 @@
+제목: 역이 많은 동은 접근성도 좋을까? — 서울 행정동별 지하철역 밀도와 주민 접근성 비교
+팀·학생명: 백승현
+과제 구분: 과제 3
+Cloudflare 앱 URL: https://seoul-subway-accessibility-b8o.pages.dev
+GitHub 저장소 URL: https://github.com/shbaek95/seoul_subway_accessibility
+한줄 소개: 2024년 공개 인구와 OSM 보행망으로 서울 426개 행정동의 지하철역 밀도·인구가중 접근성을 계산하고, 두 지표가 다르게 평가하는 지역을 지도와 그래프로 비교했습니다.
+대표 이미지: reports/representative.png
+
+대표 이미지 전체 경로:
+F:\연구실\0.2025_박사\1. 수업\2026_2\1. 융합기술세미나\code-main\seoul_subway_accessibility\reports\representative.png
+
+공개 동의: 본인이 내용과 공개 범위를 확인한 후 Notion에서 직접 선택합니다.
+최종 제출: 위 항목과 대표 이미지를 Notion 과제3 양식에 넣고 제출 버튼을 직접 누릅니다.
+마감일: 과제 원문에 없어 확인되지 않음.

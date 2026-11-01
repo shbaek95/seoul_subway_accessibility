@@ -48,6 +48,6 @@ try{
  // public 외부 파일이 Pages에서 공개되지 않는지 확인합니다.
  if(tag==='deployed')for(const target of ['/.env','/.git/config','/README.md','/scripts/analyze.py','/data/raw/2024년_인구_다사_100M.csv'])assert.equal((await page.request.get(base+target)).status(),404,target);
  assert.deepEqual(errors,[]);assert.deepEqual(failed,[]);
- const checks={base,desktop:[1440,1100],mobile:[390,844],maps:426,options:426,selection:'지도 클릭·키보드·드롭다운 통과',scatter:'통과',search:'통과',assets:'통과',mobileOverflow:false,browserErrors:errors,failedResponses:failed,representative:'reports/representative.png'};
+ const checks={base,desktop:[1440,1100],mobile:[390,844],maps:426,options:426,selection:'지도 클릭·키보드·드롭다운 통과',scatter:'통과',search:'통과',assets:'통과',csvSha256:validation.result_csv_sha256,mobileOverflow:false,browserErrors:errors,failedResponses:failed,representative:'reports/representative.png'};
  await fs.writeFile('reports/browser-'+tag+'.json',JSON.stringify(checks,null,2));console.log(JSON.stringify(checks,null,2));
 }finally{await browser.close();}

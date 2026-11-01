@@ -51,7 +51,9 @@ def main():
     for key,title,unit,cmap in [('density','서울 행정동별 지하철역 밀도','역/㎢','GnBu'),('accessibility','서울 행정동별 인구가중 중력형 접근성','무차원 점수','YlOrBr')]:
         fig,ax=plt.subplots(figsize=(10,9));result.plot(column=key,cmap=cmap,legend=True,ax=ax,edgecolor='white',linewidth=.25,missing_kwds={'color':'lightgrey','hatch':'///','label':'계산 불가'},legend_kwds={'label':unit,'shrink':.6});ax.set_title(title+'\n2024 공개 인구 · 2025 경계 · 기준일 미상 역 CSV · 2026 OSM',fontsize=14);ax.set_axis_off();fig.text(.05,.025,'출처: 국가데이터처 SGIS · 서울특별시 TOPIS · © OpenStreetMap contributors (ODbL) / 백승현 분석',fontsize=8);fig.savefig(figures/(key+'_map.png'),dpi=180,bbox_inches='tight');plt.close(fig)
     fig,ax=plt.subplots(figsize=(10,6));ax.scatter(valid.density,valid.accessibility,c='#087f81',s=20,alpha=.6);ax.set(xlabel='지하철역 밀도 (역/㎢)',ylabel='인구가중 중력형 접근성 (무차원)',title=f'역 밀도와 주민 접근성 · Spearman ρ={qa["spearman"]:.3f}');ax.grid(alpha=.15)
-    for _,r in pd.concat([plus.head(2),minus.head(2)]).iterrows():ax.annotate(r['name'],(r.density,r.accessibility),fontsize=8,xytext=(4,5),textcoords='offset points')
+    for i,(_,r) in enumerate(pd.concat([plus.head(2),minus.head(2)]).iterrows()):
+        # 가까운 점들의 지역명이 겹치지 않도록 위·아래로 번갈아 배치합니다.
+        ax.annotate(r['name'],(r.density,r.accessibility),fontsize=8,xytext=(8,12 if i%2==0 else -18),textcoords='offset points',arrowprops={'arrowstyle':'-','color':'#62747a','lw':.5})
     fig.text(.1,.01,'출처: SGIS(2024 인구·2025 경계), 서울특별시 역사마스터, OSM(2026-11-01) / 백승현 분석',fontsize=8);fig.tight_layout(rect=[0,.03,1,1]);fig.savefig(figures/'scatter.png',dpi=180);plt.close(fig)
     examples=pd.concat([plus,minus]).sort_values('percentile_gap');fig,ax=plt.subplots(figsize=(10,6));ax.barh(examples.name,examples.percentile_gap,color=['#087f81' if x>=0 else '#c05d25' for x in examples.percentile_gap]);ax.axvline(0,color='#555',lw=.7);ax.set(xlabel='접근성 백분위 - 역 밀도 백분위 (%p)',title='두 지표의 평가가 달라지는 지역');fig.text(.1,.01,'기준: 유효 지역 내 동점 평균 순위/N×100. 출처: 동일 원자료, 백승현 분석',fontsize=8);fig.tight_layout(rect=[0,.03,1,1]);fig.savefig(figures/'percentile_gap.png',dpi=180);plt.close(fig)
     print('보고서·웹 요약·그림4개 생성 완료',flush=True)

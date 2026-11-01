@@ -168,4 +168,3 @@ A_d = Σ_i(P_i × A_i) / Σ_i P_i. 공개 인구가 있는 격자 기준. 0점 �
 ## 과제 원문
 https://github.com/jslee-gses/code/tree/main/lecture05_urban_planning_index/03_accessibility.ipynb
 Cloudflare로 발행하여 Notion 과제3에 제출. 특정 파일명·파일형식·마감일은 확인되지 않음.
-

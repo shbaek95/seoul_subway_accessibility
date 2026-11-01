@@ -126,6 +126,6 @@ Cloudflare Pages의 GitHub `main` 연결을 우선 사용합니다. Framework pr
 
 {report}
 '''
-    (ROOT/'README.md').write_text(text,encoding='utf-8')
+    (ROOT/'README.md').write_text(text.rstrip()+'\n',encoding='utf-8')
 
 if __name__=='__main__': main()

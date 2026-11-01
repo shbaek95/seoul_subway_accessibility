@@ -39,6 +39,8 @@ else:
 snapshots=[]
 for cached in (ROOT/'data/raw/osm_cache').glob('*.json'):
     data=json.loads(cached.read_text(encoding='utf-8'))
+    if data.get('remark'):
+        raise ValueError('OSM 응답에 부분 결과 경고가 있습니다: '+str(data['remark']))
     snapshots.append({'cache_file':cached.name,'osm_base':data.get('osm3s',{}).get('timestamp_osm_base')})
 metadata={'download_date':'2026-11-01','buffer_m':2500,'network_type':'walk','retain_all':True,'simplify':False,'snapshots':snapshots,'copyright':'© OpenStreetMap contributors','license':'https://www.openstreetmap.org/copyright'}
 (ROOT/'reports/network_metadata.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2),encoding='utf-8')

@@ -1,0 +1,18 @@
+{
+  "checks": "집계 426개, 코드·면적·밀도·인구 분모·백분위·실패 표시·JSON 유한값·공개 파일 범위 통과",
+  "result_csv_sha256": "7870b64125277dba7ae314f54a7b30db4d2dd6edd52726e34dd6ccdd3f426705",
+  "public_files": [
+    "404.html",
+    "_headers",
+    "app.js",
+    "favicon.svg",
+    "index.html",
+    "report.md",
+    "results.csv",
+    "results.geojson",
+    "sources.json",
+    "style.css",
+    "summary.json",
+    "validation.json"
+  ]
+}

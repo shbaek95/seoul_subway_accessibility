@@ -1,0 +1,17 @@
+..\.venv\Scripts\python.exe : test_connector_distances_and_failure (test_metrics.MetricsTest.test_connector_distances_a
+nd_failure) ... ok
+위치 줄:2 문자:32
++ ... NG='utf-8'; ..\.venv\Scripts\python.exe -m unittest discover -s tests ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (test_connector_...failure) ... ok:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+test_hand_calculation (test_metrics.MetricsTest.test_hand_calculation) ... ok
+test_multistation_and_reexecution (test_metrics.MetricsTest.test_multistation_and_reexecution) ... ok
+test_population_denominator (test_metrics.MetricsTest.test_population_denominator) ... ok
+test_same_node_different_stations (test_metrics.MetricsTest.test_same_node_different_stations) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.001s
+
+OK

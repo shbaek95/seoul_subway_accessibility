@@ -1,0 +1,70 @@
+{
+  "datasets": [
+    {
+      "name": "2024년 100m 격자 인구 (다사)",
+      "provider": "국가데이터처(구 통계청) SGIS / 교수님 수업 배포본",
+      "reference_date": "2024년 (CSV year 필드)",
+      "download_date": "2026-11-01",
+      "crs": "비공간 CSV, GRID_CD로 100m 경계와 결합",
+      "spatial_unit": "100m 격자",
+      "fields": "year, GRID_CD, stat_code, population",
+      "source_url": "https://sgis.mods.go.kr/view/pss/dataProvdIntrcn",
+      "download_url": "https://github.com/jslee-gses/code/tree/d04422c9a8341df75795956db6bdec4aaa9a61e0/lecture05_urban_planning_index/grid",
+      "license": "SGIS 자료 활용 시 출처 명시·활용 결과 제출 조건. 수업 배포본의 별도 재배포 허락은 명시되지 않아 원자료는 공개 저장소에 올리지 않음.",
+      "processing": "to_in_001만 선택, 1:1 결합. 결측을 0으로 채우지 않음. 공개값 0과 자료 없음 구분. SGIS 비밀보호(BSCA/N/A)로 공개 인구는 참값과 다를 수 있음."
+    },
+    {
+      "name": "서울 100m 격자 경계",
+      "provider": "SGIS 경계체계 / 교수님 수업 가공본",
+      "reference_date": "2025년 (파일명 기준, 파일 내 별도 기준일 없음)",
+      "download_date": "2026-11-01",
+      "crs": "원본 EPSG:4326 → 분석 EPSG:5179",
+      "spatial_unit": "100m 격자",
+      "fields": "GRID_CD, geometry",
+      "source_url": "https://sgis.mods.go.kr/view/pss/dataProvdIntrcn",
+      "download_url": "https://github.com/jslee-gses/code/tree/d04422c9a8341df75795956db6bdec4aaa9a61e0/lecture05_urban_planning_index/grid",
+      "license": "SGIS 출처 표시. 서울 추출·가공본의 제작 경위와 별도 이용허락은 확인되지 않음. 원본 전체를 재배포하지 않음.",
+      "processing": "코드 고유성·유효 도형 검사. 투영좌표계 중심점을 행정동에 배정. 서울 밖 중심점 격자 제외."
+    },
+    {
+      "name": "서울 행정동 경계 (bnd_dong_seoul)",
+      "provider": "국가데이터처 SGIS / 교수님 서울 추출본",
+      "reference_date": "2025-06-30 (BASE_DATE=20250630)",
+      "download_date": "2026-11-01",
+      "crs": "EPSG:5179 (UTM-K, GRS80), 웹 공개본 EPSG:4326",
+      "spatial_unit": "행정동 426개",
+      "fields": "BASE_DATE, ADM_CD(8자리 SGIS), ADM_NM, geometry",
+      "source_url": "https://sgis.mods.go.kr/view/pss/dataProvdIntrcn",
+      "download_url": "https://github.com/jslee-gses/code/tree/d04422c9a8341df75795956db6bdec4aaa9a61e0/lecture05_urban_planning_index/shp",
+      "license": "SGIS 출처 표시·자료 활용 조건. 행정동 집계 지도만 공개하며 전체 경계 원본은 별도 재배포하지 않음.",
+      "processing": "ADM_CD 고유성·유효성 검사. 코드로 집계 결과 1:1 결합. 웹 지도만 15m 단순화(지표 계산 면적은 원도형 사용)."
+    },
+    {
+      "name": "서울시 역사마스터 정보",
+      "provider": "서울특별시 TOPIS / 교수님 수업 CSV",
+      "reference_date": "수업 CSV 자체의 기준일은 확인되지 않음. 제공기관 페이지 갱신일 2026-10-22와 CSV의 기준일을 동일시하지 않음.",
+      "download_date": "2026-11-01",
+      "crs": "EPSG:4326 위도·경도 → EPSG:5179",
+      "spatial_unit": "호선별 역사 기록 → 중복 정리한 역군",
+      "fields": "역사_ID, 역사명, 호선, 위도, 경도",
+      "source_url": "https://data.seoul.go.kr/dataList/OA-21232/S/1/datasetView.do",
+      "download_url": "https://github.com/jslee-gses/code/tree/d04422c9a8341df75795956db6bdec4aaa9a61e0/lecture05_urban_planning_index/data",
+      "license": "공공누리 제1유형: 출처표시, 상업적 이용·변경 가능.",
+      "processing": "좌표 범위·ID 고유성 검사. 같은 정규명이며 500m 이내이거나 동일 좌표인 기록을 군집화. 서울/서울역, 이수/총신대입구 별칭 반영. 군내 실제 좌표 medoid를 대표점으로 선택. GTX 삼성 미정차 기록 1행 제외. 서울+2.5km 역을 접근성 계산에 포함."
+    },
+    {
+      "name": "OpenStreetMap 보행 도로망",
+      "provider": "OpenStreetMap contributors / Overpass API / OSMnx",
+      "reference_date": "2026-11-01 수집 당시 OSM 스냅샷 (2024 인구와 시점 다름)",
+      "download_date": "2026-11-01",
+      "crs": "원본 EPSG:4326; 연결거리 EPSG:5179, OSMnx length 미터",
+      "spatial_unit": "도로 노드·간선, 서울 경계+2.5km",
+      "fields": "OSM node id, x, y, length, highway, access, foot",
+      "source_url": "https://www.openstreetmap.org/copyright",
+      "download_url": "https://overpass-api.de/api/interpreter",
+      "license": "ODbL 1.0, © OpenStreetMap contributors. 공개 지도·결과에 출처 표시. 원시 도로망은 로컬 캐시로만 보존.",
+      "processing": "walk 필터, 모든 연결 성분 유지, 도로 중간 노드 보존. 평행 간선은 최단 length. 최근접 노드 연결거리 포함. 300m 초과 연결은 실패, 정상 망의 역 미도달은 점수 0."
+    }
+  ],
+  "note": "본 분석은 2024 인구·2025 경계·기준일 미상 역 CSV·2026-11-01 수집 OSM을 결합한 수업 분석이며, 2026년 전체 현황이나 공식 교통 접근성 통계가 아닙니다."
+}

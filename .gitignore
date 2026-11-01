@@ -1,0 +1,11 @@
+data/raw/
+data/processed/
+.local/
+.venv/
+__pycache__/
+*.pyc
+.env
+*.env
+.dev.vars
+.wrangler/
+node_modules/

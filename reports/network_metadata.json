@@ -1,0 +1,47 @@
+{
+  "download_date": "2026-11-01",
+  "buffer_m": 2500,
+  "network_type": "walk",
+  "retain_all": true,
+  "simplify": false,
+  "snapshots": [
+    {
+      "cache_file": "091a0de7d651a7087c7e3ee24500b47e8012a3df.json",
+      "osm_base": "2026-11-01T11:22:36Z"
+    },
+    {
+      "cache_file": "1b25562914c913c14a270132dc1d16e008747198.json",
+      "osm_base": "2026-11-01T11:23:36Z"
+    },
+    {
+      "cache_file": "c47bcc0da33817b62f88f6beb40b8ad4a9d0e0fb.json",
+      "osm_base": "2026-11-01T11:25:36Z"
+    },
+    {
+      "cache_file": "063244e0e7983970cd7216d66fe7ae3108387829.json",
+      "osm_base": "2026-11-01T11:26:35Z"
+    },
+    {
+      "cache_file": "2ff0047a998ef127d6c0b6896ea337f33e6c4291.json",
+      "osm_base": "2026-11-01T11:27:36Z"
+    },
+    {
+      "cache_file": "35b6c31637a59d2b8b3df83927bf939dc1fdeb9a.json",
+      "osm_base": "2026-11-01T11:30:41Z"
+    },
+    {
+      "cache_file": "49074188bc71da5397808e9ed715d399ba5f5432.json",
+      "osm_base": "2026-11-01T11:32:49Z"
+    },
+    {
+      "cache_file": "0f7de6b6765775376d9889d53c0f05394bef765c.json",
+      "osm_base": "2026-11-01T11:33:49Z"
+    },
+    {
+      "cache_file": "bf89cfa8d5119821d83794322e4760ce2f515dc7.json",
+      "osm_base": "2026-11-01T11:34:50Z"
+    }
+  ],
+  "copyright": "© OpenStreetMap contributors",
+  "license": "https://www.openstreetmap.org/copyright"
+}
